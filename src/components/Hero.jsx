@@ -1,90 +1,97 @@
-import { PhoneCall } from 'lucide-react';
+import { PhoneCall, Menu } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <div className="h-screen bg-white flex flex-col">
+    <div className="min-h-screen md:h-screen bg-white flex flex-col">
       {/* Header Navigation */}
-      <header className="bg-white px-6 py-4 flex items-center justify-between flex-shrink-0 animate-fade-in-down">
+      <header className="bg-white px-4 md:px-6 py-4 flex items-center justify-between flex-shrink-0 animate-fade-in-down">
         <div className="flex items-center">
-          <img src="/logo.png" alt="Balaji Group Logo" className="h-14 w-auto object-contain" />
+          <img src="/logo.png" alt="Balaji Group Logo" className="h-10 md:h-14 w-auto object-contain" />
         </div>
 
-        <nav className="hidden md:flex items-center gap-12 absolute left-1/2 transform -translate-x-1/2" style={{ fontFamily: 'Poppins, sans-serif' }}>
-          <a href="#services" className="text-gray-700 hover:text-gray-900 font-semibold">SERVICES</a>
-          <a href="#training" className="text-gray-700 hover:text-gray-900 font-semibold">TRAINING</a>
-          <a href="#about" className="text-gray-700 hover:text-gray-900 font-semibold">ABOUT US</a>
+        <nav className="hidden md:flex items-center gap-8 lg:gap-12 absolute left-1/2 transform -translate-x-1/2" style={{ fontFamily: 'Poppins, sans-serif' }}>
+          <a href="#services" className="text-gray-700 hover:text-gray-900 font-semibold text-sm lg:text-base">SERVICES</a>
+          <a href="#training" className="text-gray-700 hover:text-gray-900 font-semibold text-sm lg:text-base">TRAINING</a>
+          <a href="#about" className="text-gray-700 hover:text-gray-900 font-semibold text-sm lg:text-base">ABOUT US</a>
         </nav>
 
-        <button className="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-full font-semibold flex items-center gap-2 transition-colors" style={{ fontFamily: 'Poppins, sans-serif' }}>
-          Request Quote
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        {/* Mobile menu button */}
+        <button className="md:hidden p-2">
+          <Menu className="w-6 h-6 text-gray-700" />
+        </button>
+
+        {/* Desktop Request Quote button */}
+        <button className="hidden md:flex bg-red-500 hover:bg-red-600 text-white px-4 lg:px-6 py-2 lg:py-3 rounded-full font-semibold items-center gap-2 transition-colors text-sm lg:text-base" style={{ fontFamily: 'Poppins, sans-serif' }}>
+          <span className="hidden lg:inline">Request Quote</span>
+          <span className="lg:hidden">Quote</span>
+          <svg className="w-4 h-4 lg:w-5 lg:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
           </svg>
         </button>
       </header>
 
       {/* Hero Section */}
-      <div className="flex-1 flex items-center w-full overflow-hidden px-8 pt-3 pb-8">
-        <div className="rounded-3xl overflow-hidden w-full h-full" style={{ backgroundColor: '#2A2B2D' }}>
-          <div className="grid lg:grid-cols-2 gap-6 p-16 lg:p-20 h-full">
+      <div className="flex-1 flex items-center w-full overflow-hidden px-4 md:px-8 pt-3 pb-6 md:pb-8">
+        <div className="rounded-2xl md:rounded-3xl overflow-hidden w-full h-full" style={{ backgroundColor: '#2A2B2D' }}>
+          <div className="grid lg:grid-cols-2 gap-6 p-6 md:p-12 lg:p-20 h-full">
             {/* Left Content */}
-            <div className="text-white flex flex-col justify-between h-full py-4">
+            <div className="text-white flex flex-col justify-between h-full py-2 md:py-4">
               <div className="animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-                <h2 className="text-6xl lg:text-7xl leading-tight tracking-tight whitespace-nowrap mb-4" style={{ fontFamily: "'Oswald', sans-serif", fontWeight: 600 }}>
+                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tight mb-3 md:mb-4" style={{ fontFamily: "'Oswald', sans-serif", fontWeight: 600 }}>
                   <span className="block">PROTECTING PEOPLE</span>
                   <span className="block">AND PLACES WITH</span>
                   <span className="block">EXCELLENCE</span>
                 </h2>
-                <p className="text-xl text-gray-300">
+                <p className="text-base md:text-lg lg:text-xl text-gray-300">
                   Your Security is Our Priority, Since 1991
                 </p>
               </div>
 
               {/* CTA Buttons */}
-              <div className="flex flex-wrap gap-4 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+              <div className="flex flex-col sm:flex-row flex-wrap gap-3 md:gap-4 animate-fade-in-up my-6 md:my-0" style={{ animationDelay: '0.4s' }}>
                 <button
-                  className="px-8 py-3 rounded-full font-medium transition-opacity hover:opacity-90"
+                  className="px-6 md:px-8 py-2.5 md:py-3 rounded-full font-medium transition-opacity hover:opacity-90 text-sm md:text-base"
                   style={{ background: 'linear-gradient(to right, #9CCBF5, #DBEEFF)', color: '#000000' }}
                 >
                   Explore Services
                 </button>
-                <button className="bg-transparent hover:bg-white hover:text-gray-800 text-white px-8 py-3 rounded-lg font-medium flex items-center gap-2 transition-colors">
-                  <PhoneCall className="w-6 h-6" style={{ color: '#C5F547', strokeWidth: 2 }} />
+                <button className="bg-transparent hover:bg-white hover:text-gray-800 text-white px-6 md:px-8 py-2.5 md:py-3 rounded-lg font-medium flex items-center justify-center gap-2 transition-colors text-sm md:text-base">
+                  <PhoneCall className="w-5 h-5 md:w-6 md:h-6" style={{ color: '#C5F547', strokeWidth: 2 }} />
                   Call Us Now!
                 </button>
               </div>
 
               {/* Stats */}
-              <div className="grid grid-cols-2 gap-6 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
-                <div className="flex items-center gap-3">
-                  <div style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 400, fontSize: '35.71px', lineHeight: '100%', minWidth: '80px' }}>
+              <div className="grid grid-cols-2 gap-3 md:gap-6 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
+                <div className="flex items-center gap-2 md:gap-3">
+                  <div style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 400, fontSize: 'clamp(24px, 4vw, 35.71px)', lineHeight: '100%', minWidth: 'clamp(50px, 10vw, 80px)' }}>
                     15<sup style={{ color: '#9CCBF5', fontSize: '0.6em' }}>+</sup>
                   </div>
-                  <div className="text-sm text-gray-400">
+                  <div className="text-xs md:text-sm text-gray-400">
                     Satisfied Indian<br />Clients
                   </div>
                 </div>
-                <div className="flex items-center gap-3">
-                  <div style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 400, fontSize: '35.71px', lineHeight: '100%', minWidth: '80px' }}>
+                <div className="flex items-center gap-2 md:gap-3">
+                  <div style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 400, fontSize: 'clamp(24px, 4vw, 35.71px)', lineHeight: '100%', minWidth: 'clamp(50px, 10vw, 80px)' }}>
                     170<sup style={{ color: '#9CCBF5', fontSize: '0.6em' }}>+</sup>
                   </div>
-                  <div className="text-sm text-gray-400">
+                  <div className="text-xs md:text-sm text-gray-400">
                     Completed<br />Projects
                   </div>
                 </div>
-                <div className="flex items-center gap-3">
-                  <div style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 400, fontSize: '35.71px', lineHeight: '100%', minWidth: '80px' }}>
+                <div className="flex items-center gap-2 md:gap-3">
+                  <div style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 400, fontSize: 'clamp(24px, 4vw, 35.71px)', lineHeight: '100%', minWidth: 'clamp(50px, 10vw, 80px)' }}>
                     110<sup style={{ color: '#9CCBF5', fontSize: '0.6em' }}>+</sup>
                   </div>
-                  <div className="text-sm text-gray-400">
-                    Expert<br />Personnelle
+                  <div className="text-xs md:text-sm text-gray-400">
+                    Expert<br />Personnel
                   </div>
                 </div>
-                <div className="flex items-center gap-3">
-                  <div style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 400, fontSize: '35.71px', lineHeight: '100%', minWidth: '80px' }}>
+                <div className="flex items-center gap-2 md:gap-3">
+                  <div style={{ fontFamily: 'Poppins, sans-serif', fontWeight: 400, fontSize: 'clamp(24px, 4vw, 35.71px)', lineHeight: '100%', minWidth: 'clamp(50px, 10vw, 80px)' }}>
                     210<sup style={{ color: '#9CCBF5', fontSize: '0.6em' }}>+</sup>
                   </div>
-                  <div className="text-sm text-gray-400">
+                  <div className="text-xs md:text-sm text-gray-400">
                     Positive<br />Reviews
                   </div>
                 </div>
@@ -92,7 +99,7 @@ const Hero = () => {
             </div>
 
             {/* Right Content - Image & Badges */}
-            <div className="relative flex items-end pt-4" style={{ height: 'calc(100% + 5rem)', marginBottom: '-5rem', marginLeft: '-2rem' }}>
+            <div className="hidden lg:flex relative items-end pt-4" style={{ height: 'calc(100% + 5rem)', marginBottom: '-5rem', marginLeft: '-2rem' }}>
               {/* Light blue rectangle */}
               <div className="rounded-t-3xl h-full relative animate-fade-in-up" style={{ width: '70%', background: 'linear-gradient(to right, #9CCBF5, #DBEEFF)', animationDelay: '0.3s' }}>
               </div>
@@ -127,8 +134,33 @@ const Hero = () => {
                   </div>
                   <div className="text-left">
                     <p className="text-sm font-bold text-gray-800">PASARA</p>
-                    <p className="text-sm text-gray-600">Complaint</p>
+                    <p className="text-sm text-gray-600">Compliant</p>
                   </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Mobile/Tablet Badges - Below content on smaller screens */}
+            <div className="lg:hidden flex flex-wrap gap-3 md:gap-4 justify-center md:justify-start">
+              {/* Badge - ISO Certified */}
+              <div className="bg-white rounded-xl p-3 md:p-4 shadow-lg flex items-center gap-3 flex-1 min-w-[140px]">
+                <div className="flex-shrink-0">
+                  <img src="/ISO.png" alt="ISO Certified" className="w-10 h-10 md:w-12 md:h-12 object-contain" />
+                </div>
+                <div className="text-left">
+                  <p className="text-xs md:text-sm font-bold text-gray-800">ISO - 9001:2015</p>
+                  <p className="text-xs text-gray-600">Certified</p>
+                </div>
+              </div>
+
+              {/* Badge - PASARA */}
+              <div className="bg-white rounded-xl p-3 md:p-4 shadow-lg flex items-center gap-3 flex-1 min-w-[140px]">
+                <div className="flex-shrink-0">
+                  <img src="/Pasara.png" alt="PASARA Compliant" className="w-10 h-10 md:w-12 md:h-12 object-contain" />
+                </div>
+                <div className="text-left">
+                  <p className="text-xs md:text-sm font-bold text-gray-800">PASARA</p>
+                  <p className="text-xs text-gray-600">Compliant</p>
                 </div>
               </div>
             </div>

@@ -1,4 +1,3 @@
-import { PhoneCall } from 'lucide-react';
 import Header from './Header';
 
 const AboutHero = () => {
@@ -23,15 +22,16 @@ const AboutHero = () => {
               </div>
 
               {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row flex-wrap gap-3 md:gap-4 animate-fade-in-up my-6 md:my-0" style={{ animationDelay: '0.4s' }}>
+              <div className="flex flex-col sm:flex-row flex-wrap gap-1 md:gap-2 animate-fade-in-up my-6 md:my-0" style={{ animationDelay: '0.4s' }}>
                 <button
-                  className="px-6 md:px-8 py-2.5 md:py-3 rounded-full font-medium transition-opacity hover:opacity-90 text-sm md:text-base"
-                  style={{ background: 'linear-gradient(to right, #9CCBF5, #DBEEFF)', color: '#000000' }}
+                  className="py-2.5 md:py-3 rounded-full font-medium transition-opacity hover:opacity-90 text-sm md:text-base"
+                  style={{ background: 'linear-gradient(to right, #9CCBF5, #DBEEFF)', color: '#000000', height: '50px', width: '182px' }}
                 >
                   Explore Services
                 </button>
-                <button className="bg-transparent hover:bg-white hover:text-gray-800 text-white px-6 md:px-8 py-2.5 md:py-3 rounded-lg font-medium flex items-center justify-center gap-2 transition-colors text-sm md:text-base">
-                  <PhoneCall className="w-5 h-5 md:w-6 md:h-6" style={{ color: '#C5F547', strokeWidth: 2 }} />
+
+                <button className="bg-transparent hover:bg-white hover:text-gray-800 text-white px-6 md:px-8 py-2.5 md:py-3 rounded-lg font-medium flex items-center justify-center gap-2 transition-colors text-sm md:text-base" style={{ marginTop: '-0.5rem' }}>
+                  <img src="/contactcall.png" alt="Call" style={{ height: '47px', width: 'auto' }} />
                   Call Us Now!
                 </button>
               </div>

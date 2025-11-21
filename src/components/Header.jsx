@@ -17,13 +17,17 @@ const Header = () => {
           SERVICES
           <span className={`absolute bottom-0 left-0 h-0.5 bg-red-500 transition-all duration-300 ${location.pathname === '/services' ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
         </Link>
-        <a href="#training" className="text-gray-700 hover:text-gray-900 font-semibold text-sm lg:text-base relative pb-1 group">
+        <Link to="/training" className="text-gray-700 hover:text-gray-900 font-semibold text-sm lg:text-base relative pb-1 group">
           TRAINING
-          <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-red-500 group-hover:w-full transition-all duration-300"></span>
-        </a>
+          <span className={`absolute bottom-0 left-0 h-0.5 bg-red-500 transition-all duration-300 ${location.pathname === '/training' ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
+        </Link>
         <Link to="/about" className="text-gray-700 hover:text-gray-900 font-semibold text-sm lg:text-base relative pb-1 group">
           ABOUT US
           <span className={`absolute bottom-0 left-0 h-0.5 bg-red-500 transition-all duration-300 ${location.pathname === '/about' ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
+        </Link>
+        <Link to="/contact" className="text-gray-700 hover:text-gray-900 font-semibold text-sm lg:text-base relative pb-1 group">
+          CONTACT US
+          <span className={`absolute bottom-0 left-0 h-0.5 bg-red-500 transition-all duration-300 ${location.pathname === '/contact' ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
         </Link>
       </nav>
 

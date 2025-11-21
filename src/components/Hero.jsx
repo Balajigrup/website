@@ -1,4 +1,3 @@
-import { PhoneCall } from 'lucide-react';
 import Header from './Header';
 
 const Hero = () => {
@@ -31,8 +30,8 @@ const Hero = () => {
                 >
                   Explore Services
                 </button>
-                <button className="bg-transparent hover:bg-white hover:text-gray-800 text-white px-6 md:px-8 py-2.5 md:py-3 rounded-lg font-medium flex items-center justify-center gap-2 transition-colors text-sm md:text-base">
-                  <PhoneCall className="w-5 h-5 md:w-6 md:h-6" style={{ color: '#C5F547', strokeWidth: 2 }} />
+                <button className="bg-transparent hover:bg-white hover:text-gray-800 text-white px-6 md:px-8 py-2.5 md:py-3 rounded-lg font-medium flex items-center justify-center gap-2 transition-colors text-sm md:text-base" style={{ marginTop: '-0.5rem' }}>
+                  <img src="/contactcall.png" alt="Call" style={{ height: '47px', width: 'auto' }} />
                   Call Us Now!
                 </button>
               </div>

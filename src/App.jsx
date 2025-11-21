@@ -1,32 +1,19 @@
-import Hero from './components/Hero'
-import OurReach from './components/OurReach'
-import TrustedByLeaders from './components/TrustedByLeaders'
-import BalajiAdvantage from './components/BalajiAdvantage'
-import Commitment from './components/Commitment'
-import Services from './components/Services'
-import Banner from './components/Banner'
-import Leadership from './components/Leadership'
-import Training from './components/Training'
-import Awards from './components/Awards'
-import Contact from './components/Contact'
-import Footer from './components/Footer'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Homepage from './pages/Homepage'
+import ServicesPage from './pages/ServicesPage'
+import AboutPage from './pages/AboutPage'
 
 function App() {
   return (
-    <div className="App">
-      <Hero />
-      <OurReach />
-      <TrustedByLeaders />
-      <BalajiAdvantage />
-      <Commitment />
-      <Services />
-      <Banner />
-      <Leadership />
-      <Training />
-      <Awards />
-      <Contact />
-      <Footer />
-    </div>
+    <Router>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<Homepage />} />
+          <Route path="/services" element={<ServicesPage />} />
+          <Route path="/about" element={<AboutPage />} />
+        </Routes>
+      </div>
+    </Router>
   )
 }
 

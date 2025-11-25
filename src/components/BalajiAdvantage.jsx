@@ -9,7 +9,7 @@ const BalajiAdvantage = () => {
       icon: Heart,
       image: "/Balaji Advantage/trusted.png",
       size: "large", // Takes up more space
-    },
+    }, 
     {
       id: 2,
       title: "Highly Trained Professionals",

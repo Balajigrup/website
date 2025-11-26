@@ -45,17 +45,50 @@ const Timeline = () => {
   ];
 
   return (
-    <section className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-8">
+    <section className="py-10 md:py-20 bg-white">
+      <div className="max-w-7xl mx-auto px-4 md:px-8">
         {/* Header */}
-        <div className="text-center mb-20">
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold" style={{ fontFamily: "'Oswald', sans-serif", fontWeight: 700, color: '#1F2937' }}>
+        <div className="text-center mb-10 md:mb-20">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold" style={{ fontFamily: "'Oswald', sans-serif", fontWeight: 700, color: '#1F2937' }}>
             Our Legacy Time Line
           </h2>
         </div>
 
-        {/* Timeline */}
-        <div className="relative">
+        {/* Mobile Timeline - Vertical */}
+        <div className="lg:hidden">
+          <div className="relative">
+            {/* Vertical Line */}
+            <div className="absolute left-6 md:left-8 top-0 bottom-0 w-0.5 bg-gray-300"></div>
+
+            {/* Timeline Items */}
+            <div className="space-y-8">
+              {milestones.map((milestone) => (
+                <div key={milestone.id} className="relative flex items-start gap-4 md:gap-6">
+                  {/* Icon Circle */}
+                  <div className="w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center flex-shrink-0 z-10" style={{ backgroundColor: '#415A7E' }}>
+                    <milestone.icon size={24} className="text-white md:w-8 md:h-8" strokeWidth={1.5} />
+                  </div>
+
+                  {/* Content */}
+                  <div className="flex-1 pb-4">
+                    <p className="text-2xl md:text-3xl font-bold mb-1" style={{ fontFamily: "'Oswald', sans-serif", color: '#1F2937' }}>
+                      {milestone.year}<span style={{ fontSize: '0.6em' }}>+</span>
+                    </p>
+                    <h3 className="text-sm md:text-base font-bold mb-2" style={{ fontFamily: "'Oswald', sans-serif", color: '#1F2937', letterSpacing: '0.05em' }}>
+                      {milestone.title}
+                    </h3>
+                    <p className="text-xs md:text-sm leading-relaxed" style={{ fontFamily: "'Poppins', sans-serif", color: '#4B5563' }}>
+                      {milestone.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Desktop Timeline - Horizontal */}
+        <div className="hidden lg:block relative">
           {/* Horizontal Line */}
           <div className="absolute top-1/2 left-0 right-0 h-1 bg-gray-300 transform -translate-y-1/2" style={{ zIndex: 0 }}></div>
 

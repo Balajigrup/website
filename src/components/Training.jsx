@@ -43,25 +43,25 @@ const Training = () => {
   };
 
   return (
-    <section className="py-16 bg-white">
-      <div className="max-w-7xl mx-auto px-8">
+    <section className="py-10 md:py-16 bg-white">
+      <div className="max-w-7xl mx-auto px-4 md:px-8">
         {/* Header */}
-        <h2 className="text-4xl lg:text-5xl font-bold text-center mb-6" style={{ fontFamily: "'Oswald', sans-serif", fontWeight: 700, color: '#1F2937' }}>
-          Central India's Most Advanced<br />Security Training
+        <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-center mb-4 md:mb-6" style={{ fontFamily: "'Oswald', sans-serif", fontWeight: 700, color: '#1F2937' }}>
+          Central India's Most Advanced<br className="hidden sm:block" /> Security Training
         </h2>
 
-        <p className="text-center text-gray-700 mb-12 max-w-4xl mx-auto" style={{ fontFamily: "'Poppins', sans-serif", fontSize: '18px' }}>
+        <p className="text-center text-gray-700 mb-8 md:mb-12 max-w-4xl mx-auto text-sm md:text-lg" style={{ fontFamily: "'Poppins', sans-serif" }}>
           What sets Balaji Security Agency apart is our industry-leading, certified training academy—ensuring every guard is ready for any situation.
         </p>
 
         {/* Features */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 mb-8 md:mb-12">
           {features.map((feature) => {
             const IconComponent = feature.icon;
             return (
               <div key={feature.id} className="flex flex-col items-center text-center">
-                <IconComponent className="w-12 h-12 mb-4" style={{ color: '#1F2937', strokeWidth: 1.5 }} />
-                <p className="text-gray-900 font-semibold" style={{ fontFamily: "'Poppins', sans-serif", fontSize: '16px' }}>
+                <IconComponent className="w-8 h-8 md:w-12 md:h-12 mb-2 md:mb-4" style={{ color: '#1F2937', strokeWidth: 1.5 }} />
+                <p className="text-gray-900 font-semibold text-xs md:text-base" style={{ fontFamily: "'Poppins', sans-serif" }}>
                   {feature.title}
                 </p>
               </div>
@@ -70,51 +70,74 @@ const Training = () => {
         </div>
 
         {/* Divider */}
-        <div className="w-full h-px bg-gray-300 mb-12"></div>
+        <div className="w-full h-px bg-gray-300 mb-8 md:mb-12"></div>
 
         {/* Image Carousel */}
         <div className="relative">
-          <div className="flex gap-6 overflow-hidden">
-            {images.map((image, index) => (
+          {/* Mobile: Show single image */}
+          <div className="md:hidden">
+            <div className="overflow-hidden rounded-2xl">
               <div
-                key={index}
-                className="flex-shrink-0 rounded-3xl overflow-hidden transition-all duration-500"
-                style={{
-                  width: '23%',
-                  transform: `translateX(-${currentSlide * 104}%)`,
-                }}
+                className="flex transition-transform duration-500"
+                style={{ transform: `translateX(-${currentSlide * 100}%)` }}
               >
-                <img
-                  src={image}
-                  alt={`Training ${index + 1}`}
-                  className="w-full h-96 object-cover"
-                />
+                {images.map((image, index) => (
+                  <div key={index} className="flex-shrink-0 w-full">
+                    <img
+                      src={image}
+                      alt={`Training ${index + 1}`}
+                      className="w-full h-64 object-cover rounded-2xl"
+                    />
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
+          </div>
+
+          {/* Desktop: Show multiple images */}
+          <div className="hidden md:block">
+            <div className="flex gap-4 lg:gap-6 overflow-hidden">
+              {images.map((image, index) => (
+                <div
+                  key={index}
+                  className="flex-shrink-0 rounded-2xl lg:rounded-3xl overflow-hidden transition-all duration-500"
+                  style={{
+                    width: 'calc(25% - 12px)',
+                    transform: `translateX(-${currentSlide * 104}%)`,
+                  }}
+                >
+                  <img
+                    src={image}
+                    alt={`Training ${index + 1}`}
+                    className="w-full h-64 lg:h-96 object-cover"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* Navigation Arrows */}
           <button
             onClick={prevSlide}
-            className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white shadow-lg flex items-center justify-center hover:scale-110 transition-transform"
+            className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white shadow-lg flex items-center justify-center hover:scale-110 transition-transform"
           >
-            <ChevronLeft className="w-6 h-6" style={{ color: '#1F2937' }} />
+            <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" style={{ color: '#1F2937' }} />
           </button>
           <button
             onClick={nextSlide}
-            className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white shadow-lg flex items-center justify-center hover:scale-110 transition-transform"
+            className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white shadow-lg flex items-center justify-center hover:scale-110 transition-transform"
           >
-            <ChevronRight className="w-6 h-6" style={{ color: '#1F2937' }} />
+            <ChevronRight className="w-5 h-5 md:w-6 md:h-6" style={{ color: '#1F2937' }} />
           </button>
 
           {/* Dots Indicator */}
-          <div className="flex justify-center gap-2 mt-8">
+          <div className="flex justify-center gap-2 mt-6 md:mt-8">
             {images.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentSlide(index)}
-                className={`w-3 h-3 rounded-full transition-all ${
-                  index === currentSlide ? 'bg-gray-900 w-8' : 'bg-gray-400'
+                className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-all ${
+                  index === currentSlide ? 'bg-gray-900 w-6 md:w-8' : 'bg-gray-400'
                 }`}
               />
             ))}
@@ -122,10 +145,10 @@ const Training = () => {
         </div>
 
         {/* CTA Button */}
-        <div className="flex justify-center mt-12">
-          <button className="flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-lg transition-all hover:scale-105" style={{ fontFamily: "'Poppins', sans-serif", backgroundColor: '#93C5FD', color: '#1F2937' }}>
+        <div className="flex justify-center mt-8 md:mt-12">
+          <button className="flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 rounded-full font-semibold text-sm md:text-lg transition-all hover:scale-105" style={{ fontFamily: "'Poppins', sans-serif", backgroundColor: '#93C5FD', color: '#1F2937' }}>
             See full training curriculum
-            <ChevronRight className="w-5 h-5" />
+            <ChevronRight className="w-4 h-4 md:w-5 md:h-5" />
           </button>
         </div>
       </div>

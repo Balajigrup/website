@@ -12,11 +12,11 @@ const TrustedByLeaders = () => {
   const duplicatedClients = [...clients, ...clients];
 
   return (
-    <section className="bg-white py-16">
-      <div className="max-w-7xl mx-auto px-8">
+    <section className="bg-white py-10 md:py-16 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 md:px-8">
         {/* Heading */}
         <h2
-          className="text-5xl lg:text-6xl font-bold text-center text-gray-900 mb-16"
+          className="text-3xl md:text-5xl lg:text-6xl font-bold text-center text-gray-900 mb-8 md:mb-16"
           style={{ fontFamily: "'Oswald', sans-serif", fontWeight: 600 }}
         >
           Trusted by Leaders
@@ -25,16 +25,25 @@ const TrustedByLeaders = () => {
         {/* Marquee Container */}
         <div className="relative overflow-hidden">
           {/* Gradient overlays for smooth edges */}
-          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white to-transparent z-10"></div>
-          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white to-transparent z-10"></div>
+          <div className="absolute left-0 top-0 bottom-0 w-8 md:w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+          <div className="absolute right-0 top-0 bottom-0 w-8 md:w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
 
           {/* Scrolling logos */}
-          <div className="flex animate-marquee">
+          <div
+            className="flex"
+            style={{
+              animation: 'marquee 20s linear infinite',
+              width: 'fit-content'
+            }}
+          >
             {duplicatedClients.map((client, index) => (
               <div
                 key={index}
-                className="flex-shrink-0 mx-12 flex items-center justify-center"
-                style={{ width: '200px', height: '100px' }}
+                className="flex-shrink-0 mx-4 md:mx-8 lg:mx-12 flex items-center justify-center"
+                style={{
+                  width: 'clamp(100px, 15vw, 180px)',
+                  height: 'clamp(50px, 8vw, 90px)'
+                }}
               >
                 <img
                   src={client.logo}
@@ -47,7 +56,7 @@ const TrustedByLeaders = () => {
         </div>
       </div>
 
-      <style jsx>{`
+      <style>{`
         @keyframes marquee {
           0% {
             transform: translateX(0);
@@ -55,14 +64,6 @@ const TrustedByLeaders = () => {
           100% {
             transform: translateX(-50%);
           }
-        }
-
-        .animate-marquee {
-          animation: marquee 30s linear infinite;
-        }
-
-        .animate-marquee:hover {
-          animation-play-state: paused;
         }
       `}</style>
     </section>

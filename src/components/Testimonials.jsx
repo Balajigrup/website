@@ -62,21 +62,22 @@ const Testimonials = () => {
   };
 
   const TestimonialCard = ({ testimonial }) => (
-    <div className="bg-white rounded-3xl p-10 shadow-lg">
+    <div className="bg-white rounded-2xl md:rounded-3xl p-6 md:p-10 shadow-lg">
       {/* Quote Icon */}
-      <div className="w-14 h-14 rounded-full flex items-center justify-center mb-6" style={{ background: 'linear-gradient(to right, #9CCBF5, #DBEEFF)' }}>
-        <Quote size={28} className="text-white" fill="white" />
+      <div className="w-10 h-10 md:w-14 md:h-14 rounded-full flex items-center justify-center mb-4 md:mb-6" style={{ background: 'linear-gradient(to right, #9CCBF5, #DBEEFF)' }}>
+        <Quote size={20} className="text-white md:hidden" fill="white" />
+        <Quote size={28} className="text-white hidden md:block" fill="white" />
       </div>
 
       {/* Testimonial Text */}
-      <p className="text-xl text-gray-800 mb-8 leading-relaxed" style={{ fontFamily: "'Poppins', sans-serif" }}>
+      <p className="text-base md:text-xl text-gray-800 mb-6 md:mb-8 leading-relaxed" style={{ fontFamily: "'Poppins', sans-serif" }}>
         {testimonial.text}
       </p>
 
       {/* Author Info */}
       <div className="flex items-center gap-2">
         <div className="w-2 h-2 rounded-full" style={{ backgroundColor: '#6B7280' }}></div>
-        <p className="text-gray-500" style={{ fontFamily: "'Poppins', sans-serif" }}>
+        <p className="text-gray-500 text-sm md:text-base" style={{ fontFamily: "'Poppins', sans-serif" }}>
           <span className="font-semibold">{testimonial.author}</span>, {testimonial.position}
         </p>
       </div>
@@ -84,19 +85,19 @@ const Testimonials = () => {
   );
 
   return (
-    <section className="py-20" style={{ backgroundColor: '#F5F5F5' }}>
-      <div className="max-w-7xl mx-auto px-8">
+    <section className="py-12 md:py-20" style={{ backgroundColor: '#F5F5F5' }}>
+      <div className="max-w-7xl mx-auto px-4 md:px-8">
         {/* Header with Navigation */}
-        <div className="flex justify-between items-start mb-16">
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold max-w-4xl" style={{ fontFamily: "'Oswald', sans-serif", fontWeight: 700, color: '#1F2937' }}>
+        <div className="flex flex-col md:flex-row justify-between items-start gap-6 mb-8 md:mb-16">
+          <h2 className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold max-w-4xl" style={{ fontFamily: "'Oswald', sans-serif", fontWeight: 700, color: '#1F2937' }}>
             What Our Customers Are Saying About Our Services?
           </h2>
 
           {/* Navigation Buttons */}
-          <div className="flex gap-4">
+          <div className="flex gap-3 md:gap-4 flex-shrink-0">
             <button
               onClick={handlePrevious}
-              className="w-16 h-16 rounded-full flex items-center justify-center transition-all group relative"
+              className="w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center transition-all group relative"
               style={{
                 background: 'white',
                 padding: '2px'
@@ -115,7 +116,8 @@ const Testimonials = () => {
                   transition: 'background 0.3s'
                 }}
               >
-                <ChevronLeft size={28} className="group-hover:text-black transition-colors" style={{ color: '#93C5FD' }} />
+                <ChevronLeft size={20} className="group-hover:text-black transition-colors md:hidden" style={{ color: '#93C5FD' }} />
+                <ChevronLeft size={28} className="group-hover:text-black transition-colors hidden md:block" style={{ color: '#93C5FD' }} />
               </div>
               <div
                 className="absolute inset-0 rounded-full -z-10"
@@ -127,7 +129,7 @@ const Testimonials = () => {
             </button>
             <button
               onClick={handleNext}
-              className="w-16 h-16 rounded-full flex items-center justify-center transition-all group relative"
+              className="w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center transition-all group relative"
               style={{
                 background: 'white',
                 padding: '2px'
@@ -146,7 +148,8 @@ const Testimonials = () => {
                   transition: 'background 0.3s'
                 }}
               >
-                <ChevronRight size={28} className="group-hover:text-black transition-colors" style={{ color: '#93C5FD' }} />
+                <ChevronRight size={20} className="group-hover:text-black transition-colors md:hidden" style={{ color: '#93C5FD' }} />
+                <ChevronRight size={28} className="group-hover:text-black transition-colors hidden md:block" style={{ color: '#93C5FD' }} />
               </div>
               <div
                 className="absolute inset-0 rounded-full -z-10"
@@ -168,7 +171,7 @@ const Testimonials = () => {
             {testimonialPairs.map((pair, pairIndex) => (
               <div
                 key={pairIndex}
-                className="min-w-full grid md:grid-cols-2 gap-8"
+                className="min-w-full grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8"
               >
                 {pair.map((testimonial) => (
                   <TestimonialCard key={testimonial.id} testimonial={testimonial} />

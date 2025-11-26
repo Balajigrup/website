@@ -19,31 +19,31 @@ const WhyChooseBalaji = () => {
   ];
 
   return (
-    <section className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+    <section className="py-12 md:py-20 bg-white">
+      <div className="max-w-7xl mx-auto px-4 md:px-8">
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
           {/* Left Column - Text Content */}
           <div>
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-12" style={{ fontFamily: "'Oswald', sans-serif", fontWeight: 700, color: '#1F2937' }}>
+            <h2 className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-8 md:mb-12" style={{ fontFamily: "'Oswald', sans-serif", fontWeight: 700, color: '#1F2937' }}>
               Why Choose Balaji Security Agency?
             </h2>
 
             {/* Reasons List */}
-            <div className="space-y-8">
+            <div className="space-y-5 md:space-y-8">
               {reasons.map((reason) => (
-                <div key={reason.number} className="flex items-start gap-6">
+                <div key={reason.number} className="flex items-start gap-4 md:gap-6">
                   {/* Number Circle */}
                   <div
-                    className="flex-shrink-0 w-16 h-16 rounded-full flex items-center justify-center"
+                    className="flex-shrink-0 w-10 h-10 md:w-14 lg:w-16 md:h-14 lg:h-16 rounded-full flex items-center justify-center"
                     style={{ backgroundColor: '#93C5FD' }}
                   >
-                    <span className="text-2xl font-bold text-white" style={{ fontFamily: "'Poppins', sans-serif" }}>
+                    <span className="text-lg md:text-xl lg:text-2xl font-bold text-white" style={{ fontFamily: "'Poppins', sans-serif" }}>
                       {reason.number}
                     </span>
                   </div>
 
                   {/* Text */}
-                  <p className="text-xl text-gray-600 pt-3" style={{ fontFamily: "'Poppins', sans-serif", lineHeight: '1.6' }}>
+                  <p className="text-sm md:text-lg lg:text-xl text-gray-600 pt-1.5 md:pt-3" style={{ fontFamily: "'Poppins', sans-serif", lineHeight: '1.6' }}>
                     {reason.text}
                   </p>
                 </div>
@@ -52,8 +52,8 @@ const WhyChooseBalaji = () => {
           </div>
 
           {/* Right Column - Image */}
-          <div className="flex justify-center lg:justify-end">
-            <div className="rounded-3xl overflow-hidden shadow-lg w-full max-w-xl">
+          <div className="flex justify-center lg:justify-end mt-8 lg:mt-0">
+            <div className="rounded-2xl md:rounded-3xl overflow-hidden shadow-lg w-full max-w-xl">
               <img
                 src="/why choose balaji.png"
                 alt="Security guards training"

@@ -2,7 +2,7 @@ import Header from './Header';
 
 const TrainingHero = () => {
   return (
-    <div className="min-h-[65vh] md:h-[97vh] bg-white flex flex-col">
+    <div className="min-h-[65vh] md:h-[100vh] bg-white flex flex-col">
       <Header />
 
       {/* Hero Section */}
@@ -83,7 +83,7 @@ const TrainingHero = () => {
             </div>
 
             {/* Right Side - Image and Badges */}
-            <div className="hidden lg:flex relative items-end pt-4" style={{ height: 'calc(100% + 5rem)', marginBottom: '-5rem', marginLeft: '-2rem' }}>
+            <div className="hidden lg:flex relative items-end pt-4" style={{ height: 'calc(100% + 5rem)', marginBottom: '-5rem', marginLeft: '-2rem', marginTop: '3rem' }}>
               {/* Light blue rectangle */}
               <div className="rounded-t-3xl h-full relative" style={{ width: '70%', background: 'linear-gradient(to right, #9CCBF5, #DBEEFF)' }}>
               </div>
@@ -93,7 +93,7 @@ const TrainingHero = () => {
                 src="/guard_hero.png"
                 alt="Security Guard"
                 className="absolute transform -translate-x-1/2 w-auto object-contain"
-                style={{ left: '33%', height: 'calc(100% + 6rem)' }}
+                style={{ left: '33%', bottom: '-2rem', height: 'calc(100% + 6rem)' }}
               />
 
               {/* Badge containers stacked on the right */}
@@ -133,13 +133,13 @@ const TrainingHero = () => {
             {/* Mobile/Tablet - Guard Image & Badges */}
             <div className="lg:hidden flex flex-row items-center justify-center gap-4">
               {/* Mobile Guard Image */}
-              <div className="relative" style={{ width: '180px', height: '300px' }}>
+              <div className="relative" style={{ width: '180px', height: '330px' }}>
                 {/* Blue background */}
                 <div
                   className="absolute bottom-0 left-1/2 -translate-x-1/2 rounded-t-2xl"
                   style={{
                     width: '160px',
-                    height: '250px',
+                    height: '265px',
                     background: 'linear-gradient(to right, #9CCBF5, #DBEEFF)'
                   }}
                 />
@@ -147,12 +147,12 @@ const TrainingHero = () => {
                 <img
                   src="/guard_hero.png"
                   alt="Security Guard"
-                  className="absolute -bottom-[165px] left-1/2 -translate-x-1/2 h-[550px] w-auto object-contain"
+                  className="absolute -bottom-[146px] left-1/2 -translate-x-1/2 h-[550px] w-auto object-contain"
                 />
               </div>
 
               {/* Mobile Badges - Stacked vertically on right */}
-              <div className="flex flex-col gap-2.5 w-[120px] mt-11">
+              <div className="flex flex-col gap-2.5 w-[120px] mt-12">
                 {/* Badge - Training Facility */}
                 <div className="bg-white rounded-xl p-2.5 shadow-md text-center">
                   <p className="text-[10px] font-semibold text-gray-800 mb-1">In-House Training</p>

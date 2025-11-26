@@ -2,11 +2,11 @@ import Header from './Header';
 
 const AboutHero = () => {
   return (
-    <div className="min-h-[70vh] md:h-[97vh] bg-white flex flex-col">
+    <div className="min-h-[65vh] md:h-[100vh] bg-white flex flex-col">
       <Header />
 
       {/* Hero Section */}
-      <div className="flex-1 flex items-center w-full overflow-hidden px-4 md:px-8 pt-3 pb-3 md:pb-8">
+      <div className="flex-1 flex items-center w-full overflow-hidden px-4 md:px-8 pt-3 pb-6 md:pb-8">
         <div className="rounded-2xl md:rounded-3xl overflow-hidden w-full h-full" style={{ backgroundColor: '#2A2B2D' }}>
           <div className="grid lg:grid-cols-2 gap-2 md:gap-6 p-6 md:p-12 lg:p-20 h-186">
             {/* Left Content */}
@@ -73,12 +73,12 @@ const AboutHero = () => {
             </div>
 
             {/* Right Content - Image & Badges */}
-            <div className="hidden lg:flex relative items-end pt-4" style={{ height: 'calc(100% + 5rem)', marginBottom: '-5rem', marginLeft: '-2rem' }}>
+            <div className="hidden lg:flex relative items-end pt-4" style={{ height: 'calc(100% + 5rem)', marginBottom: '-5rem', marginLeft: '-2rem', marginTop: '3rem' }}>
               {/* Light blue rectangle */}
               <div className="rounded-t-3xl h-full relative animate-fade-in-up" style={{ width: '70%', background: 'linear-gradient(to right, #9CCBF5, #DBEEFF)', animationDelay: '0.3s' }}>
               </div>
               {/* Guard image - positioned to overflow */}
-              <img src="/guard_hero.png" alt="Security Guard" className="absolute transform -translate-x-1/2 w-auto object-contain animate-fade-in-up" style={{ left: '33%', bottom: '-0.75rem', height: 'calc(100% + 3rem)', animationDelay: '0.5s' }} />
+              <img src="/guard_hero.png" alt="Security Guard" className="absolute transform -translate-x-1/2 w-auto object-contain animate-fade-in-up" style={{ left: '33%', bottom: '-2rem', height: 'calc(100% + 3rem)', animationDelay: '0.5s' }} />
 
               {/* Badge containers stacked on the right */}
               <div className="absolute flex flex-col gap-5 z-20 animate-fade-in-right" style={{ right: '-0.5rem', top: '4rem', fontFamily: "'Oswald', sans-serif", animationDelay: '0.7s' }}>
@@ -117,13 +117,13 @@ const AboutHero = () => {
             {/* Mobile/Tablet - Guard Image & Badges */}
             <div className="lg:hidden flex flex-row items-center justify-center gap-4">
               {/* Mobile Guard Image */}
-              <div className="relative" style={{ width: '180px', height: '320px' }}>
+              <div className="relative" style={{ width: '180px', height: '330px' }}>
                 {/* Blue background */}
                 <div
                   className="absolute bottom-0 left-1/2 -translate-x-1/2 rounded-t-2xl"
                   style={{
                     width: '160px',
-                    height: '300px',
+                    height: '265px',
                     background: 'linear-gradient(to right, #9CCBF5, #DBEEFF)'
                   }}
                 />
@@ -131,12 +131,12 @@ const AboutHero = () => {
                 <img
                   src="/guard_hero.png"
                   alt="Security Guard"
-                  className="absolute -bottom-[165px] left-1/2 -translate-x-1/2 h-[550px] w-auto object-contain"
+                  className="absolute -bottom-[146px] left-1/2 -translate-x-1/2 h-[550px] w-auto object-contain"
                 />
               </div>
 
               {/* Mobile Badges - Stacked vertically on right */}
-              <div className="flex flex-col gap-2.5 w-[120px] mt-11">
+              <div className="flex flex-col gap-2.5 w-[120px] mt-12">
                 {/* Badge - Training Facility */}
                 <div className="bg-white rounded-xl p-2.5 shadow-md text-center">
                   <p className="text-[10px] font-semibold text-gray-800 mb-1">In-House Training</p>

@@ -51,17 +51,17 @@ const ServiceModal = ({ service, isOpen, onClose }) => {
   ];
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-transparent backdrop-blur-sm" onClick={onClose}>
-      <div className="bg-white rounded-3xl w-full max-w-6xl h-[90vh] overflow-hidden flex flex-col" onClick={(e) => e.stopPropagation()}>
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-2 md:p-4 bg-transparent backdrop-blur-sm" onClick={onClose}>
+      <div className="bg-white rounded-2xl md:rounded-3xl w-full max-w-6xl h-[95vh] md:h-[90vh] overflow-y-auto flex flex-col" onClick={(e) => e.stopPropagation()}>
         {/* Header Section with Image */}
-        <div className="relative h-64 bg-gradient-to-r from-blue-900 to-blue-700">
+        <div className="relative h-40 md:h-64 bg-gradient-to-r from-blue-900 to-blue-700 flex-shrink-0">
           <img src="/modal.jpg" alt={service.title} className="w-full h-full object-cover opacity-80" />
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/70 to-transparent flex items-end p-8">
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/70 to-transparent flex items-end p-4 md:p-8">
             <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-white mb-2" style={{ fontFamily: "'Oswald', sans-serif" }}>
+              <h2 className="text-2xl md:text-5xl font-bold text-white mb-1 md:mb-2" style={{ fontFamily: "'Oswald', sans-serif" }}>
                 {service.title}
               </h2>
-              <p className="text-white text-lg" style={{ fontFamily: "'Poppins', sans-serif" }}>
+              <p className="text-white text-sm md:text-lg" style={{ fontFamily: "'Poppins', sans-serif" }}>
                 {service.description}
               </p>
             </div>
@@ -69,19 +69,19 @@ const ServiceModal = ({ service, isOpen, onClose }) => {
           {/* Close Button */}
           <button
             onClick={onClose}
-            className="absolute top-6 right-6 bg-white rounded-full p-2 hover:bg-gray-100 transition-colors"
+            className="absolute top-3 right-3 md:top-6 md:right-6 bg-white rounded-full p-1.5 md:p-2 hover:bg-gray-100 transition-colors"
           >
-            <X size={24} className="text-gray-800" />
+            <X size={20} className="text-gray-800 md:w-6 md:h-6" />
           </button>
         </div>
 
-        {/* Content Section - Non-scrollable */}
-        <div className="flex-1 p-8 grid grid-cols-1 lg:grid-cols-2 gap-8">
+        {/* Content Section */}
+        <div className="flex-1 p-4 md:p-8 grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-8">
           {/* Left Column */}
           <div className="flex flex-col">
             {/* What's Included */}
-            <div className="mb-6">
-              <h3 className="text-2xl font-bold mb-4" style={{ fontFamily: "'Oswald', sans-serif", color: '#1F2937' }}>
+            <div className="mb-4 md:mb-6">
+              <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4" style={{ fontFamily: "'Oswald', sans-serif", color: '#1F2937' }}>
                 What's Included
               </h3>
               <ul className="space-y-2">
@@ -98,12 +98,12 @@ const ServiceModal = ({ service, isOpen, onClose }) => {
           {/* Right Column */}
           <div className="flex flex-col">
             {/* Highlights Box */}
-            <div className="rounded-3xl p-6 mb-6" style={{ backgroundColor: '#DBEEFF' }}>
-              <div className="space-y-4">
+            <div className="rounded-2xl md:rounded-3xl p-4 md:p-6 mb-4 md:mb-6" style={{ backgroundColor: '#DBEEFF' }}>
+              <div className="space-y-3 md:space-y-4">
                 {highlights.map((highlight, index) => (
-                  <div key={index} className="flex items-start gap-3">
-                    <highlight.icon size={24} className="text-blue-900 flex-shrink-0 mt-1" />
-                    <p className="text-gray-800" style={{ fontFamily: "'Poppins', sans-serif", fontSize: '15px' }}>
+                  <div key={index} className="flex items-start gap-2 md:gap-3">
+                    <highlight.icon size={20} className="text-blue-900 flex-shrink-0 mt-0.5 md:w-6 md:h-6" />
+                    <p className="text-gray-800 text-sm md:text-base" style={{ fontFamily: "'Poppins', sans-serif" }}>
                       {highlight.text}
                     </p>
                   </div>
@@ -114,16 +114,16 @@ const ServiceModal = ({ service, isOpen, onClose }) => {
         </div>
 
         {/* Related Services Section */}
-        <div className="px-8 pb-8">
-          <div className="grid grid-cols-3 gap-4">
+        <div className="px-4 md:px-8 pb-4 md:pb-8 flex-shrink-0">
+          <div className="grid grid-cols-3 gap-2 md:gap-4">
             {relatedServices.map((relService, index) => (
               <div
                 key={index}
-                className="rounded-2xl p-6 flex flex-col items-center justify-center text-center"
+                className="rounded-xl md:rounded-2xl p-3 md:p-6 flex flex-col items-center justify-center text-center"
                 style={{ backgroundColor: '#1E3A8A' }}
               >
-                <img src={relService.icon} alt={relService.title} className="w-16 h-16 object-contain mb-3 brightness-0 invert" />
-                <h4 className="text-white font-semibold text-sm whitespace-pre-line" style={{ fontFamily: "'Oswald', sans-serif" }}>
+                <img src={relService.icon} alt={relService.title} className="w-10 h-10 md:w-16 md:h-16 object-contain mb-2 md:mb-3 brightness-0 invert" />
+                <h4 className="text-white font-semibold text-[10px] md:text-sm whitespace-pre-line" style={{ fontFamily: "'Oswald', sans-serif" }}>
                   {relService.title}
                 </h4>
               </div>

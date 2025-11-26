@@ -124,7 +124,7 @@ const ServicesHero = () => {
                   className="absolute bottom-0 left-1/2 -translate-x-1/2 rounded-t-2xl"
                   style={{
                     width: '160px',
-                    height: '285px',
+                    height: '296px',
                     background: 'linear-gradient(to right, #9CCBF5, #DBEEFF)'
                   }}
                 />
@@ -132,12 +132,12 @@ const ServicesHero = () => {
                 <img
                   src="/guard_hero.png"
                   alt="Security Guard"
-                  className="absolute -bottom-[125px] left-1/2 -translate-x-1/2 h-[550px] w-auto object-contain"
+                  className="absolute -bottom-[148px] left-1/2 -translate-x-1/2 h-[600px] w-260 object-contain"
                 />
               </div>
 
               {/* Mobile Badges - Stacked vertically on right */}
-              <div className="flex flex-col gap-2.5 w-[120px] mt-[-58]">
+              <div className="flex flex-col gap-2.5 w-[110px] mb-3">
                 {/* Badge - Training Facility */}
                 <div className="bg-white rounded-xl p-2.5 shadow-md text-center">
                   <p className="text-[10px] font-semibold text-gray-800 mb-1">In-House Training</p>

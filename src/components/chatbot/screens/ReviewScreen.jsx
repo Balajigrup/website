@@ -86,32 +86,16 @@ export default function ReviewScreen({ answers, onEdit, onContinue, language = '
                   key={questionId}
                   className="pb-4 border-b border-gray-100 last:border-0"
                 >
-                  <div className="flex items-start justify-between gap-4">
-                    <div className="flex-1">
-                      {/* Question */}
-                      <div className="text-sm font-semibold text-gray-600 mb-1">
-                        {questionTextToDisplay}
-                      </div>
-
-                      {/* Answer */}
-                      <div className="text-base text-gray-900">
-                        {formatAnswer(questionId, value)}
-                      </div>
+                  <div className="flex-1">
+                    {/* Question */}
+                    <div className="text-sm font-semibold text-gray-600 mb-1">
+                      {questionTextToDisplay}
                     </div>
 
-                    {/* Change Button */}
-                    <button
-                      onClick={() => onEdit(questionId)}
-                      className="
-                        flex-shrink-0 px-3 py-1.5
-                        text-sm font-medium text-blue-600
-                        hover:bg-blue-50 rounded-lg
-                        transition-colors
-                        focus:outline-none focus:ring-2 focus:ring-blue-200
-                      "
-                    >
-                      {t.change}
-                    </button>
+                    {/* Answer */}
+                    <div className="text-base text-gray-900">
+                      {formatAnswer(questionId, value)}
+                    </div>
                   </div>
                 </div>
               );

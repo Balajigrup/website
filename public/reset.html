@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reset Chatbot</title>
+</head>
+<body>
+    <h1>Chatbot Reset Tool</h1>
+    <button onclick="resetChatbot()" style="padding: 10px 20px; font-size: 16px; cursor: pointer;">
+        Clear Chatbot Data
+    </button>
+    <p id="status"></p>
+    
+    <script>
+        function resetChatbot() {
+            // Clear all chatbot data
+            localStorage.removeItem('chatbot_conversation');
+            localStorage.removeItem('chatbot_metadata');
+            localStorage.removeItem('chatbot_reference');
+            
+            document.getElementById('status').innerHTML = '✅ Chatbot data cleared! <a href="/">Go to homepage</a>';
+        }
+    </script>
+</body>
+</html>

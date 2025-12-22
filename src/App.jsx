@@ -4,6 +4,7 @@ import ServicesPage from './pages/ServicesPage'
 import AboutPage from './pages/AboutPage'
 import ContactPage from './pages/ContactPage'
 import TrainingPage from './pages/TrainingPage'
+import Chatbot from './components/chatbot/Chatbot'
 
 function App() {
   return (
@@ -16,6 +17,9 @@ function App() {
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/training" element={<TrainingPage />} />
         </Routes>
+
+        {/* Chatbot - appears on all pages */}
+        <Chatbot />
       </div>
     </Router>
   )

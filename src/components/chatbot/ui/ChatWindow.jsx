@@ -16,7 +16,8 @@ export default function ChatWindow({
   onRestart,
   onMinimize,
   onClose,
-  isProcessing
+  isProcessing,
+  language
 }) {
   return (
     <>
@@ -68,6 +69,7 @@ export default function ChatWindow({
           currentQuestion={currentQuestion}
           onSelectOption={onSelectOption}
           isProcessing={isProcessing}
+          language={language}
         />
       </div>
     </>

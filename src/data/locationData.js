@@ -341,19 +341,23 @@ export function getAllStates() {
 /**
  * Format location for display
  */
-export function formatLocation(cityValue, stateValue) {
+export function formatLocation(cityValue, stateValue, language = 'en') {
   const state = states.find(s => s.value === stateValue);
   const citiesList = getCitiesForState(stateValue);
   const city = citiesList.find(c => c.value === cityValue);
 
-  if (!city || !state) return 'Not specified';
+  if (!city || !state) {
+    return language === 'hi' ? 'निर्दिष्ट नहीं' : 'Not specified';
+  }
 
   if (cityValue === 'not_sure' || stateValue === 'not_sure') {
-    return 'Not Sure';
+    return language === 'hi' ? 'निश्चित नहीं' : 'Not Sure';
   }
 
   if (cityValue === 'other') {
-    return `${state.label} (Other city)`;
+    return language === 'hi'
+      ? `${state.label} (अन्य शहर)`
+      : `${state.label} (Other city)`;
   }
 
   return `${city.label}, ${state.label}`;

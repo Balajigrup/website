@@ -6,6 +6,26 @@ import { getQuestionText, getQuestionOptions } from '../../../data/translations'
  * ReviewScreen - Shows all answers with ability to edit
  */
 export default function ReviewScreen({ answers, onEdit, onContinue, language = 'en' }) {
+  // UI translations
+  const labels = {
+    en: {
+      title: 'Review Your Answers',
+      subtitle: 'Check your selections before submitting',
+      noAnswers: 'No answers to review yet',
+      change: 'Change',
+      looksGood: 'Looks Good'
+    },
+    hi: {
+      title: 'अपने उत्तरों की समीक्षा करें',
+      subtitle: 'सबमिट करने से पहले अपने चयन की जांच करें',
+      noAnswers: 'समीक्षा करने के लिए कोई उत्तर नहीं',
+      change: 'बदलें',
+      looksGood: 'सही है'
+    }
+  };
+
+  const t = labels[language] || labels.en;
+
   // Get answered questions in order
   const answeredQuestions = Object.keys(answers)
     .map(key => {
@@ -24,7 +44,7 @@ export default function ReviewScreen({ answers, onEdit, onContinue, language = '
     // Handle location picker
     if (question.optionType === 'location-picker') {
       const { city, state } = parseLocationValue(value);
-      return formatLocation(city, state);
+      return formatLocation(city, state, language);
     }
 
     // Get translated options
@@ -41,10 +61,10 @@ export default function ReviewScreen({ answers, onEdit, onContinue, language = '
       {/* Header */}
       <div className="px-6 py-4 border-b border-gray-200">
         <h2 className="text-xl font-semibold text-gray-900">
-          Review Your Answers
+          {t.title}
         </h2>
         <p className="text-sm text-gray-500 mt-1">
-          Check your selections before submitting
+          {t.subtitle}
         </p>
       </div>
 
@@ -52,7 +72,7 @@ export default function ReviewScreen({ answers, onEdit, onContinue, language = '
       <div className="flex-1 overflow-y-auto px-6 py-4">
         {answeredQuestions.length === 0 ? (
           <div className="text-center text-gray-400 py-8">
-            No answers to review yet
+            {t.noAnswers}
           </div>
         ) : (
           <div className="space-y-4">
@@ -90,7 +110,7 @@ export default function ReviewScreen({ answers, onEdit, onContinue, language = '
                         focus:outline-none focus:ring-2 focus:ring-blue-200
                       "
                     >
-                      Change
+                      {t.change}
                     </button>
                   </div>
                 </div>
@@ -115,7 +135,7 @@ export default function ReviewScreen({ answers, onEdit, onContinue, language = '
             disabled:opacity-50 disabled:cursor-not-allowed
           "
         >
-          Looks Good
+          {t.looksGood}
         </button>
 
         <button

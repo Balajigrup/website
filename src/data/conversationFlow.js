@@ -1081,8 +1081,10 @@ export const conversationFlow = {
       careers: 'Q38',
       contact_locations: 'Q43',
       existing_client_support: 'Q45',
-      main_menu: 'Q2'
+      main_menu: 'Q2',
+      default: 'Q2'
     },
+    next: 'Q2',
     validationRules: {
       required: true,
       minSelections: 1,

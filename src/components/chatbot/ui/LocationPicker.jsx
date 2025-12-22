@@ -13,9 +13,33 @@ import {
  * Step 1: Select State
  * Step 2: Select City
  */
-export default function LocationPicker({ onSelect, disabled }) {
+export default function LocationPicker({ onSelect, disabled, language = 'en' }) {
   const [step, setStep] = useState('state'); // 'state' | 'city'
   const [selectedState, setSelectedState] = useState(null);
+
+  // UI translations
+  const labels = {
+    en: {
+      popular: 'Popular',
+      allStates: 'All States',
+      notSure: 'Not Sure',
+      selectCity: 'Select your city',
+      topCities: 'Top Cities',
+      moreCities: 'More Cities',
+      otherCity: 'Other city in'
+    },
+    hi: {
+      popular: 'लोकप्रिय',
+      allStates: 'सभी राज्य',
+      notSure: 'निश्चित नहीं',
+      selectCity: 'अपना शहर चुनें',
+      topCities: 'प्रमुख शहर',
+      moreCities: 'अधिक शहर',
+      otherCity: 'अन्य शहर'
+    }
+  };
+
+  const t = labels[language] || labels.en;
 
   const popularStates = getPopularStates();
   const allStates = getAllStates();
@@ -25,7 +49,7 @@ export default function LocationPicker({ onSelect, disabled }) {
     if (state.value === 'not_sure') {
       // If "Not Sure", skip to final selection
       onSelect({
-        label: 'Not Sure',
+        label: t.notSure,
         value: 'not_sure'
       });
     } else {
@@ -37,7 +61,7 @@ export default function LocationPicker({ onSelect, disabled }) {
   // Handle city selection
   const handleCitySelect = (city) => {
     const locationValue = createLocationValue(city.value, selectedState.value);
-    const locationLabel = formatLocation(city.value, selectedState.value);
+    const locationLabel = formatLocation(city.value, selectedState.value, language);
 
     onSelect({
       label: locationLabel,
@@ -57,7 +81,7 @@ export default function LocationPicker({ onSelect, disabled }) {
         {/* Popular States */}
         <div>
           <div className="text-xs font-semibold text-gray-500 uppercase mb-2 px-1">
-            Popular
+            {t.popular}
           </div>
           <div className="grid grid-cols-2 gap-2">
             {popularStates.map((state) => (
@@ -86,7 +110,7 @@ export default function LocationPicker({ onSelect, disabled }) {
         {/* All States */}
         <div>
           <div className="text-xs font-semibold text-gray-500 uppercase mb-2 px-1">
-            All States
+            {t.allStates}
           </div>
           <div className="grid grid-cols-1 gap-2 max-h-[250px] overflow-y-auto">
             {allStates.map((state) => (
@@ -115,7 +139,7 @@ export default function LocationPicker({ onSelect, disabled }) {
         {/* Not Sure */}
         <div>
           <button
-            onClick={() => handleStateSelect({ label: 'Not Sure', value: 'not_sure' })}
+            onClick={() => handleStateSelect({ label: t.notSure, value: 'not_sure' })}
             disabled={disabled}
             className="
               w-full px-4 py-3 min-h-[44px]
@@ -129,7 +153,7 @@ export default function LocationPicker({ onSelect, disabled }) {
               disabled:opacity-40 disabled:cursor-not-allowed
             "
           >
-            Not Sure
+            {t.notSure}
           </button>
         </div>
       </div>
@@ -156,7 +180,7 @@ export default function LocationPicker({ onSelect, disabled }) {
           </svg>
         </button>
         <div>
-          <div className="text-sm font-semibold text-gray-900">Select your city</div>
+          <div className="text-sm font-semibold text-gray-900">{t.selectCity}</div>
           <div className="text-xs text-gray-500">({selectedState.label})</div>
         </div>
       </div>
@@ -165,7 +189,7 @@ export default function LocationPicker({ onSelect, disabled }) {
       {topCities.length > 0 && (
         <div>
           <div className="text-xs font-semibold text-gray-500 uppercase mb-2 px-1">
-            Top Cities
+            {t.topCities}
           </div>
           <div className="grid grid-cols-2 gap-2">
             {topCities.map((city) => (
@@ -196,7 +220,7 @@ export default function LocationPicker({ onSelect, disabled }) {
       {moreCities.length > 0 && (
         <div>
           <div className="text-xs font-semibold text-gray-500 uppercase mb-2 px-1">
-            More Cities
+            {t.moreCities}
           </div>
           <div className="grid grid-cols-1 gap-2 max-h-[200px] overflow-y-auto">
             {moreCities.map((city) => (

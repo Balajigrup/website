@@ -16,7 +16,8 @@ export default function ChatTranscript({
   isTyping,
   currentQuestion,
   onSelectOption,
-  isProcessing
+  isProcessing,
+  language
 }) {
   const transcriptRef = useRef(null);
   const [showJumpToLatest, setShowJumpToLatest] = useState(false);
@@ -116,6 +117,7 @@ export default function ChatTranscript({
               <LocationPicker
                 onSelect={onSelectOption}
                 disabled={isProcessing}
+                language={language || 'en'}
               />
             )}
 

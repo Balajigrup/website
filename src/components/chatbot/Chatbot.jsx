@@ -85,6 +85,7 @@ export default function Chatbot() {
               onMinimize={minimizeChat}
               onClose={closeChat}
               isProcessing={isProcessing}
+              language={conversationState?.answers?.language || 'en'}
             />
           )}
 

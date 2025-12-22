@@ -129,6 +129,10 @@ export function useChatbot() {
     // Determine next question
     const nextQuestionId = getNextQuestionId(currentQuestionId, option.value);
 
+    console.log('=== NEXT QUESTION DETERMINATION ===');
+    console.log('Next Question ID:', nextQuestionId);
+    console.log('Current Question Config:', conversationFlow[currentQuestionId]);
+
     // Add branching decision if applicable
     if (nextQuestionId) {
       addBranchingDecision(
@@ -136,6 +140,9 @@ export function useChatbot() {
         nextQuestionId,
         `${currentQuestionId}=${option.value}`
       );
+    } else {
+      console.error('⚠️ WARNING: No next question ID determined!');
+      console.error('This will cause the conversation to get stuck.');
     }
 
     // Show typing indicator
@@ -148,8 +155,28 @@ export function useChatbot() {
       // Go to review screen
       setCurrentScreen('review');
     } else if (nextQuestionId === 'END') {
-      // End conversation (e.g., About Company, Contact info shown)
-      setCurrentScreen('chat');
+      // End conversation - add thank you message and go to review
+      const currentLanguage = freshState.answers?.language || 'en';
+      const thankYouMessage = currentLanguage === 'hi'
+        ? 'धन्यवाद! आइए आपके विवरण की समीक्षा करें।'
+        : 'Thank you! Let\'s review your details.';
+
+      // Show typing for thank you message
+      setIsTyping(true);
+      await wait(600);
+      setIsTyping(false);
+
+      addBotMessage('END', thankYouMessage);
+
+      // Refresh state
+      const finalState = getConversationState();
+      setConversationState(finalState);
+
+      // Brief pause to show the message
+      await wait(1000);
+
+      // Go to review screen
+      setCurrentScreen('review');
     } else if (nextQuestionId) {
       // Show next question
       const nextQuestion = conversationFlow[nextQuestionId];
@@ -176,6 +203,23 @@ export function useChatbot() {
         // Start timer for new question
         setQuestionTimer(new Timer());
       }
+    } else {
+      // No next question found - this shouldn't happen, but handle gracefully
+      console.error('No next question ID found! Current:', currentQuestionId, 'Selected:', option.value);
+
+      // Fallback: go to review screen
+      const currentLanguage = freshState.answers?.language || 'en';
+      const fallbackMessage = currentLanguage === 'hi'
+        ? 'आइए आपके विवरण की समीक्षा करें।'
+        : 'Let\'s review your details.';
+
+      addBotMessage('FALLBACK', fallbackMessage);
+
+      const fallbackState = getConversationState();
+      setConversationState(fallbackState);
+
+      await wait(800);
+      setCurrentScreen('review');
     }
 
     setIsProcessing(false);

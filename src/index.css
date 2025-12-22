@@ -100,10 +100,10 @@ html, body {
 @keyframes bounceDot {
   0%, 60%, 100% {
     transform: translateY(0);
-    opacity: 0.3;
+    opacity: 0.4;
   }
   30% {
-    transform: translateY(-8px);
+    transform: translateY(-10px);
     opacity: 1;
   }
 }

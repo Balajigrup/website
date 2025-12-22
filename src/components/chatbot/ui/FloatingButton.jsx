@@ -27,11 +27,12 @@ export default function FloatingButton({ onClick, isOpen }) {
         bg-blue-600 hover:bg-blue-700
         text-white rounded-full
         shadow-lg hover:shadow-xl
-        transition-all duration-300
+        transition-all duration-200
         flex items-center justify-center
-        focus:outline-none focus:ring-4 focus:ring-blue-300
+        focus:outline-none focus:ring-4 focus:ring-blue-200
         active:scale-95
-        ${shouldPulse ? 'animate-pulse-custom' : ''}
+        group
+        ${shouldPulse ? 'animate-pulse' : ''}
       `}
       aria-label="Open chat assistant"
       role="button"
@@ -44,11 +45,11 @@ export default function FloatingButton({ onClick, isOpen }) {
         stroke="currentColor"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
+        strokeWidth={2}
       >
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
-          strokeWidth={2}
           d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"
         />
       </svg>
@@ -56,12 +57,13 @@ export default function FloatingButton({ onClick, isOpen }) {
       {/* Tooltip on hover (desktop) */}
       <span className="
         absolute right-full mr-3 px-3 py-1.5
-        bg-gray-900 text-white text-sm rounded-lg
-        whitespace-nowrap opacity-0 hover:opacity-100
-        transition-opacity pointer-events-none
+        bg-gray-900 text-white text-sm font-medium rounded-lg
+        whitespace-nowrap opacity-0 group-hover:opacity-100
+        transition-opacity duration-200 pointer-events-none
         hidden md:block
+        shadow-lg
       ">
-        Quick Questions
+        Chat with us
       </span>
     </button>
   );

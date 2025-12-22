@@ -1,8 +1,5 @@
-import { useEffect } from 'react';
 import ChatHeader from './ChatHeader';
 import ChatTranscript from './ChatTranscript';
-import OptionsArea from './OptionsArea';
-import LocationPicker from './LocationPicker';
 
 /**
  * ChatWindow - Main chat container
@@ -21,23 +18,11 @@ export default function ChatWindow({
   onClose,
   isProcessing
 }) {
-  // Prevent body scroll when chat is open on mobile
-  useEffect(() => {
-    const isMobile = window.innerWidth < 768;
-    if (isMobile) {
-      document.body.style.overflow = 'hidden';
-    }
-
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, []);
-
   return (
     <>
       {/* Backdrop (mobile/tablet) */}
       <div
-        className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"
+        className="fixed inset-0 bg-black bg-opacity-40 z-40 md:hidden"
         onClick={onClose}
         aria-hidden="true"
       />
@@ -52,7 +37,7 @@ export default function ChatWindow({
 
           /* Mobile: Full screen */
           bottom-0 left-0 right-0
-          h-[100vh] md:h-auto
+          h-[100vh]
 
           /* Desktop: Fixed bottom-right */
           md:bottom-5 md:right-5 md:left-auto
@@ -76,28 +61,14 @@ export default function ChatWindow({
           onClose={onClose}
         />
 
-        {/* Transcript */}
+        {/* Transcript with inline options */}
         <ChatTranscript
           messages={messages}
           isTyping={isTyping}
+          currentQuestion={currentQuestion}
+          onSelectOption={onSelectOption}
+          isProcessing={isProcessing}
         />
-
-        {/* Options Area */}
-        {currentQuestion && currentQuestion.optionType === 'location-picker' ? (
-          <div className="bg-white border-t border-gray-200 p-4 max-h-[40vh] overflow-y-auto">
-            <LocationPicker
-              onSelect={onSelectOption}
-              disabled={isProcessing}
-            />
-          </div>
-        ) : (
-          <OptionsArea
-            optionType={currentQuestion?.optionType}
-            options={currentQuestion?.options || []}
-            onSelect={onSelectOption}
-            disabled={isProcessing}
-          />
-        )}
       </div>
     </>
   );

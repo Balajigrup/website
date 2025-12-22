@@ -12,12 +12,12 @@ export default function OptionCards({ options, onSelect, disabled }) {
           disabled={disabled}
           className={`
             p-4 min-h-[100px]
-            border border-gray-200 rounded-2xl
+            border border-gray-300 rounded-xl
             bg-white
             text-left
             transition-all duration-200
-            hover:border-blue-600 hover:bg-blue-50 hover:shadow-lg hover:scale-105
-            focus:outline-none focus:ring-4 focus:ring-blue-200
+            hover:border-blue-600 hover:bg-blue-50 hover:shadow-md
+            focus:outline-none focus:ring-2 focus:ring-blue-200
             active:scale-95
             disabled:opacity-40 disabled:cursor-not-allowed
             flex flex-col gap-2
@@ -33,13 +33,13 @@ export default function OptionCards({ options, onSelect, disabled }) {
           )}
 
           {/* Title */}
-          <div className="text-sm md:text-[15px] font-semibold text-gray-900">
+          <div className="text-sm font-semibold text-gray-900">
             {option.label}
           </div>
 
           {/* Description */}
           {option.description && (
-            <div className="text-xs text-gray-500 line-clamp-2">
+            <div className="text-xs text-gray-600 line-clamp-2">
               {option.description}
             </div>
           )}

@@ -9,7 +9,7 @@ export default function UserMessage({ content, timestamp }) {
       {/* Message Content */}
       <div className="flex-1 max-w-[70%] flex flex-col items-end">
         <div className="bg-blue-600 text-white rounded-2xl rounded-br-sm px-4 py-3">
-          <p className="text-[15px] leading-relaxed">
+          <p className="text-sm leading-relaxed">
             {content}
           </p>
         </div>
